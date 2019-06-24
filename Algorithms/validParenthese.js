@@ -81,3 +81,17 @@ var isValid = function(s) { // 108ms runtime
     }
     return valid;
 };
+
+// ----------------------------------------
+
+var isValid = function(s) { // 108ms runtime
+    var storage = [];
+    for( var l of s )
+        if( ( i="({[]})".indexOf(l) )>-1 )
+            if( storage[storage.length-1]+i===5 )
+                storage.length--;
+            else
+                storage.push( i );
+    return storage.length===0;
+    
+};
