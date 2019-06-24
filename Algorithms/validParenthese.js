@@ -50,3 +50,34 @@ var isValid = function(s) {
     if(stack.length === 0) return true;
     return false;
 };
+
+// -----------------------------------------
+
+var isValid = function(s) { // 108ms runtime
+    var valid = true,
+        pair = {
+            '(': ')',
+            '[': ']',
+            '{': '}'
+        },
+        nowWaitingFor = [],
+        i;
+
+    for ( i = 0; i < s.length; i++ ) {
+        var nowChar = s.charAt(i);
+        if ( nowChar.match(/[(\[\{]/) ) {
+            nowWaitingFor.unshift(pair[nowChar]);
+        } else if ( nowChar.match(/[)\]\}]/) ) {
+            if ( nowWaitingFor[0] !== nowChar ) {
+                valid = false;
+                break;
+            } else {
+                nowWaitingFor.splice( 0, 1 );
+            }
+        }
+    }
+    if ( nowWaitingFor.length !== 0 ) {
+        valid = false;
+    }
+    return valid;
+};
