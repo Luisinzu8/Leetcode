@@ -3,8 +3,11 @@
  * @return {string}
  */
 let reverseOnlyLetters = function(S) {
+  // if string is less than 2 letters return the string
   if (S.length < 2) return S;
+  // create a constant variable to split the string
   const a = S.split('');
+  //create 2 variables to iterate through constant a string
   let i = 0;
   let j = S.length - 1;
   while (i < j) {
@@ -14,5 +17,6 @@ let reverseOnlyLetters = function(S) {
     i++;
     j--;
   }
+  //return constant a string with .join method to combine the letters
   return a.join('');
 };
