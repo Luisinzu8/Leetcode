@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {string[]}
  */
-var fizzBuzz = function(n) {
+let fizzBuzz = (n) => {
     //declare an array to return our answer
     let res = [];
     //use a for loop to iterate through numbers
