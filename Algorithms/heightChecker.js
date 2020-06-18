@@ -1,6 +1,9 @@
 /**
  * @param {number[]} heights
  * @return {number}
+ *Return the minimum number of students
+ *that must move in order for all students 
+ *to be standing in non-decreasing order of height.
  */
 var heightChecker = function(heights) {
     //creat a variable to keep track of the students out of order
@@ -24,13 +27,21 @@ var heightChecker = function(heights) {
 // diff solution
 
 var heightChecker = function(heights) {
+    //create a new sorted heights array
     let sortedArray = Array.from(heights);
+    //use .sort() to sort array from smallest to biggest
     sortedArray.sort((a,b) => a-b);
+    //create moves variable to keep track of the moves that need to be made
     let moves = 0;
+    //use a for loop to compare original heights array to our new sorted array
     for(let i = 0; i < heights.length; ++i) {
+        //if sorted array index does not equal height index
         if(sortedArray[i] !== heights[i])
+            //+1 to moves
             ++moves;
     }
-    
+    // return total amount of moves
     return moves;
 };
+
+
