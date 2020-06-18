@@ -20,3 +20,17 @@ var heightChecker = function(heights) {
 
 //[1,1,4,2,1,3]
 //[1,1,1,2,3,4]
+
+// diff solution
+
+var heightChecker = function(heights) {
+    let sortedArray = Array.from(heights);
+    sortedArray.sort((a,b) => a-b);
+    let moves = 0;
+    for(let i = 0; i < heights.length; ++i) {
+        if(sortedArray[i] !== heights[i])
+            ++moves;
+    }
+    
+    return moves;
+};
