@@ -10,6 +10,14 @@ Return an array where the ith element is the final price you will pay for the it
 example: Input: prices = [10,1,1,6]
 		 Output: [9,0,1,6]
 */
-var finalPrices = function(prices) {
-    
+let finalPrices = (prices) => {
+    const stack = [];
+    for(let i = 0; i < prices.length; i++) {
+        const curr = prices[i];
+        while(stack.length && prices[stack[stack.length - 1]] >= curr) {
+            prices[stack.pop()] -= curr;
+        }
+        stack.push(i);
+    }
+    return prices;
 };
