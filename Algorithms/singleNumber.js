@@ -8,3 +8,6 @@
 let singleNumber = (nums) => {
 	return nums.reduce((prev, curr) => prev ^ curr, 0);
 };
+
+Input: [2,2,1]
+Output: 1
