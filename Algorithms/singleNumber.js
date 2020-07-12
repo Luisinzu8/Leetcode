@@ -17,6 +17,15 @@ let singleNumber = (nums) => {
     return randoNum;
 };
 
+//forEach solution
+let singleNumber = (nums) => {
+    let randoNum = 0;
+    nums.forEach(n => {
+        randoNum ^= n
+    })
+    return randoNum;
+};
+
 Input: [2,2,1]
 Output: 1
 
