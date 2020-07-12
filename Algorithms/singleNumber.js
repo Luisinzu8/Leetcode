@@ -9,5 +9,14 @@ let singleNumber = (nums) => {
 	return nums.reduce((prev, curr) => prev ^ curr, 0);
 };
 
+//map solution
+
+let singleNumber = (nums) => {
+    let randoNum = 0;
+    nums.map((number) => randoNum ^=number);
+    return randoNum;
+};
+
 Input: [2,2,1]
 Output: 1
+
