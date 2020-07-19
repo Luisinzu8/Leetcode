@@ -8,8 +8,8 @@ Any ping with time in [t - 3000, t] will count, including the current ping.
 It is guaranteed that every call to ping uses a strictly larger value of t than before.
 */
 
-let RecentCounter = () => {
-    this.queue = [];
+let RecentCounter = function() {
+    this.pings = [];
 };
 
 /** 
@@ -17,12 +17,10 @@ let RecentCounter = () => {
  * @return {number}
  */
 RecentCounter.prototype.ping = function(t) {
-    this.queue.push(t);
-    // keep pings within 3000 from the latest ping 
-    while(this.queue[0] < t - 3000) {
-        this.queue.shift();
-    }
-    return this.queue.length;
+    this.pings.push(t);
+    while(this.pings.length > 0 && t - this.pings[0] > 3000)
+        this.pings.shift();
+    return this.pings.length;
 };
 
 /** 
