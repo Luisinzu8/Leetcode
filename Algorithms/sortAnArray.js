@@ -41,7 +41,7 @@ var sortArray = function(nums) {
     return nums
 };
 */
-
+/*
 //Insertion Sort Method//
 var sortArray = function(nums) {
     for(let i = 1; i < nums.length; i++) {
@@ -52,5 +52,20 @@ var sortArray = function(nums) {
         nums[j+1] = currentVal;
     }
     return nums;
+};
+sortArray(nums)
+*/
+
+var sortArray = function(nums) {
+    for(let i = nums.length; i > 0; i--) {
+        for(let j = 0; j < i - 1; j++){
+            if(nums[j] > nums[j+1]) {
+                let temp = nums[j];
+                nums[j] = nums[j + 1];
+                nums[j+1] = temp;
+            }
+        }
+    }
+    return nums
 };
 sortArray(nums)
