@@ -25,7 +25,7 @@ var sortArray = function(nums) {
  * @return {number[]}
  */
 nums = [5,2,3,1]
-
+/*
 var sortArray = function(nums) {
     for(let i = 0; i < nums.length; i++) {
         let lowest = i;
@@ -40,3 +40,17 @@ var sortArray = function(nums) {
     }
     return nums
 };
+*/
+
+//Insertion Sort Method//
+var sortArray = function(nums) {
+    for(let i = 1; i < nums.length; i++) {
+        let currentVal = nums[i];
+        for(var j = i - 1; j >= 0 && nums[j] > currentVal; j--) {
+            nums[j + 1] = nums[j];
+        }
+        nums[j+1] = currentVal;
+    }
+    return nums;
+};
+sortArray(nums)
