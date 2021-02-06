@@ -29,7 +29,7 @@ var searchInsert = function(nums, target) {
         };
     };
     //return the length if target is not found but where it would be located
-    return length;
+    return  nums.length;
 };
 
 searchInsert(nums, target)
