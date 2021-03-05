@@ -19,9 +19,9 @@ let fib = (N) => {
   return a;
 };
 //example
-Input: 4
-Output: 3
-Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
+// Input: 4
+// Output: 3
+// Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
 //Recursive with helper method
 
