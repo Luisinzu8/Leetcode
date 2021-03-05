@@ -22,3 +22,18 @@ let fib = (N) => {
 Input: 4
 Output: 3
 Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
+
+//Recursive with helper method
+
+var fib = function(n) {
+  let fibonacci = [0,1];
+  
+  function searchFib(i) {
+      if(i > n) return;
+      fibonacci[i] = fibonacci[i - 2] + fibonacci[i - 1];
+      searchFib(i+1, n);
+  }
+  
+  searchFib(2, n)
+  return fibonacci[n]
+};
