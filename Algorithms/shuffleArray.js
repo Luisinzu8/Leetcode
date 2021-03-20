@@ -21,3 +21,17 @@ var shuffle = (nums, n) => {
 example: Input: nums = [1,2,3,4,4,3,2,1], n = 4
 Output: [1,4,2,3,3,2,4,1]
 */
+// double pointer method
+var shuffle = function(nums, n) {
+    let result = [];
+    let i = 0;
+    for(let j = n; j < nums.length; j++) {
+        result.push(nums[i])
+        result.push(nums[j])
+        i++;
+    }
+    return result;
+    
+};
+
+shuffle(nums, n)
