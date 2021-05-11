@@ -37,3 +37,25 @@ var fib = function(n) {
   searchFib(2, n)
   return fibonacci[n]
 };
+
+//for loop
+
+let fib = (n) => {
+  if (n < 2) {
+      return n;
+  }
+  
+  let prev1 = 1;
+  let prev2 = 0;
+  
+  for (let i = 2; i <= n; i++) {
+     let temp = prev1;
+      console.log(temp, prev1)
+      prev1 += prev2;
+      console.log(prev1, prev2)
+      prev2 = temp;
+      console.log(prev2, temp)
+  }
+  console.log(prev2, prev1)
+  return prev1;
+};
