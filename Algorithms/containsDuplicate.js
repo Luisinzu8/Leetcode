@@ -15,3 +15,18 @@ Output: true
 var containsDuplicate = function(nums) {
     return nums.length !== new Set(nums).size;
 }
+
+// solution from scratch on 5/19/2020
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function(nums) {
+    let mySet = new Set(nums);
+    console.log(mySet);
+    if(mySet.size !== nums.length) {
+        return true
+    } else if(mySet.size == nums.length) {
+        return false
+    }
+};
