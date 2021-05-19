@@ -16,11 +16,7 @@ var containsDuplicate = function(nums) {
     return nums.length !== new Set(nums).size;
 }
 
-// solution from scratch on 5/19/2020
-/**
- * @param {number[]} nums
- * @return {boolean}
- */
+// solution from scratch on 5/19/2021
 var containsDuplicate = function(nums) {
     let mySet = new Set(nums);
     console.log(mySet);
@@ -29,4 +25,10 @@ var containsDuplicate = function(nums) {
     } else if(mySet.size == nums.length) {
         return false
     }
+};
+
+//optimized solution 5/19/2021
+var containsDuplicate = function(nums) {
+    let mySet = new Set(nums);
+    return (mySet.size !== nums.length ? true : false)
 };
