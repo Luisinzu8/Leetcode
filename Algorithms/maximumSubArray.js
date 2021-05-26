@@ -20,3 +20,25 @@ var maxSubArray = function(nums) {
     }
     return maxTotal
 };
+
+// if else solution
+
+var maxSubArray = function(nums) {
+    if(nums.length === 1) return nums[0];
+    
+    let curr = nums[0]
+    let sum = nums[0]
+    
+    for(let i = 1; i < nums.length; i++) {
+        if(curr < 0) {
+            curr = nums[i]
+            console.log(curr, sum)
+        } else {
+            curr = curr + nums[i]
+        }
+        if(curr > sum) {
+            sum = curr
+        }
+    }
+    return sum
+};
