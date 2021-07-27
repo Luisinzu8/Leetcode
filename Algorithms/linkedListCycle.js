@@ -22,4 +22,23 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function (head) {};
+
+head = [3, 2, 0, -4];
+//pos = 1
+
+var hasCycle = function (head) {
+  //two pointer method( 1 fast pointer, 1 slow pointer) assigned both to head
+  let pointer1 = head;
+  let pointer2 = head;
+  //while pointer1 is not null and pointer.next is not null we move pointer1 2 spots and move pointer2 one spot
+  while (pointer1 !== null && pointer1.next !== null) {
+    pointer1 = pointer1.next.next;
+    pointer2 = pointer2.next;
+    //if the pointers meet that means there is a cycle in the linked list, return true
+    if (pointer1 === pointer2) {
+      return true;
+    }
+  }
+  //if the pointer never meet and pointer1 === null, return false
+  return false;
+};
