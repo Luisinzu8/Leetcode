@@ -20,4 +20,22 @@
 
 n = 4;
 
-var sumZero = function (n) {};
+var sumZero = function (n) {
+  //create array to be returned with the unique integers summing up to 0
+  let answerArray = [];
+  //if n is odd number, push 0 to answerArray
+  if (n % 2 !== 0) {
+    answerArray.push(0);
+  }
+  //loop while answerArray length is less than "n"
+  while (answerArray.length < n) {
+    //create index to push to answerArray + 1(since answerArray begins at zero)
+    let index = answerArray.length + 1;
+    //push index into out answerArray
+    answerArray.push(index);
+    //push negative index to answerArray
+    answerArray.push(-index);
+    //once answerArray length === n, stop looping and return answerArray
+  }
+  return answerArray;
+};
