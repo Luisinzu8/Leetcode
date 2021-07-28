@@ -37,3 +37,14 @@ var reverseList = function (head) {
   //return prevNode(do NOT return head because it is null)
   return prevNode;
 };
+
+//Recursive Solution
+var reverseList = function (head) {
+  if (head === null || head.next === null) {
+    return head;
+  }
+  let reversedListHead = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return reversedListHead;
+};
