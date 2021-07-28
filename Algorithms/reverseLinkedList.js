@@ -21,13 +21,19 @@ head = [1, 2, 3, 4, 5];
 
 //iterative solution
 var reverseList = function (head) {
+  // create previous node to use to point towards head node
   let prevNode = null;
-
+  // while head is not null
   while (head !== null) {
+    //create a reference to head.next node
     let nextNode = head.next;
+    //point head.next to prevNode(null)
     head.next = prevNode;
+    //point prevNode to head node
     prevNode = head;
+    //point head to nextNode
     head = nextNode;
   }
+  //return prevNode(do NOT return head because it is null)
   return prevNode;
 };
