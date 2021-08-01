@@ -25,33 +25,61 @@ Given a roman numeral, convert it to an integer.
  * @return {number}
  */
 let romanToInt = (s) => {
-    let myMap = {
-      I: 1,
-      V: 5,
-      X: 10,
-      L: 50,
-      C: 100,
-      D: 500,
-      M: 1000
-    }
+  let myMap = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
 
-    let total = 0;
+  let total = 0;
 
-    for (let i = 0; i < s.length; i++) {
-      let currentNum = myMap[s.charAt(i)];
-      let nextNum = myMap[s.charAt(i + 1)];
+  for (let i = 0; i < s.length; i++) {
+    let currentNum = myMap[s.charAt(i)];
+    let nextNum = myMap[s.charAt(i + 1)];
 
-      if (nextNum) {
-        if (currentNum >= nextNum) {
-          total += currentNum;
-        } else {
-          total += (nextNum - currentNum);
-          i++;
-        }
-      } else {
+    if (nextNum) {
+      if (currentNum >= nextNum) {
         total += currentNum;
+      } else {
+        total += nextNum - currentNum;
+        i++;
       }
+    } else {
+      total += currentNum;
     }
+  }
 
-    return total;
+  return total;
+};
+
+//Backwards for loop
+var romanToInt = function (s) {
+  let numerals = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let total = 0;
+
+  for (let i = s.length - 1; i >= 0; i--) {
+    let currentNum = numerals[s.charAt(i)];
+    let prevNum = numerals[s.charAt(i - 1)];
+
+    if (prevNum < currentNum) {
+      total += currentNum - prevNum;
+      i--;
+    } else {
+      total += currentNum;
+    }
+  }
+  return total;
 };
