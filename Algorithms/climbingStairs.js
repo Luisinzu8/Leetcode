@@ -22,4 +22,25 @@
  * @param {number} n
  * @return {number}
  */
-var climbStairs = function (n) {};
+
+//recursive
+var climbStairs = function (n) {
+  let countRemainingStairs = (remainingStairs, savedResults) => {
+    if (remainingStairs < 0) {
+      return 0;
+    }
+    if (remainingStairs === 0) {
+      return 1;
+    }
+    if (savedResults[remainingStairs]) {
+      return savedResults[remainingStairs];
+    }
+
+    savedResults[remainingStairs] =
+      countRemainingStairs(remainingStairs - 1, savedResults) +
+      countRemainingStairs(remainingStairs - 2, savedResults);
+
+    return savedResults[remainingStairs];
+  };
+  return countRemainingStairs(n, {});
+};
